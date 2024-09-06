@@ -2,7 +2,7 @@
 
 This project is the initial step towards building a full web application, the Airbnb clone. The goal is to create a command interpreter (also known as a console) to manage Airbnb objects. This console will allow you to create, update, delete, and manage various objects (like Users, Places, etc.) that are necessary for the application's backend. It has two authors namely Peace KEZA and NTWALI Eliel.
 
-*****STEP 1 : THE CONSOLE.***
+***STEP 1 : THE CONSOLE.***
 
 ***Command Interpreter Description.***
 
@@ -52,7 +52,7 @@ The console will be a tool to validate this storage engine
 
 * Update an attribute of an object: (hbnb) update "" or (hbnb) .update(, , "")
 
-*****Examples;***
+***Examples;***
 
 **Interactive Mode;**
 
@@ -61,7 +61,9 @@ $ ./console.py
 (hbnb) help
 
 **Documented commands (type help <topic>):
+
 ===================================*
+
 EOF  help  quit
 
 (hbnb) 
@@ -81,6 +83,7 @@ $ echo "help" | ./console.py
 (hbnb)
 
 **Documented commands (type help <topic>):
+
 ==================================*
 
 EOF  help  quit
@@ -100,6 +103,7 @@ $ cat test_help | ./console.py
 (hbnb)
 
 **Documented commands (type help <topic>):
+
 ==================================*
 
 EOF  help  quit
