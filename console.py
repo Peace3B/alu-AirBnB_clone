@@ -1,12 +1,21 @@
 #!/usr/bin/python3
-"Entry point of the command interpreter"
-import cmd
-import models
-from models.user import User
-from models.amenity import Amenity 
-from models.city import City
-from models.place import Place
-from models.review import Review
-from models.state import State
+"""Module for the entry point of the command interpreter"""
 
+import cmd 
+from models.base_model import BaseModel
+from models import storage
+import re
+import json
+
+
+class HBNBCommand(cmd.Cmd):
+
+"""Class for the command interpreter."""
+
+prompt= "(hbnb)"
+
+def default(self, line):
+"""Catch commands if nothing else matches then."""
+# print("DEF:::", line)
+self._precmd(line)
 
