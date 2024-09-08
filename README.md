@@ -1,10 +1,10 @@
-*PROJECT DESCRIPTION.*
+***PROJECT DESCRIPTION.***
 
 This project is the initial step towards building a full web application, the Airbnb clone. The goal is to create a command interpreter (also known as a console) to manage Airbnb objects. This console will allow you to create, update, delete, and manage various objects (like Users, Places, etc.) that are necessary for the application's backend. It has two authors namely Peace KEZA and NTWALI Eliel.
 
-*STEP 1 : THE CONSOLE.*
+***STEP 1 : THE CONSOLE.***
 
-*Command Interpreter Description.*
+***Command Interpreter Description.***
 
 The command interpreter is a custom-built shell that enables users to manage the Airbnb objects through various commands. It performs the following functions:
 
@@ -24,7 +24,7 @@ This abstraction will also allow you to change the type of storage easily withou
 
 The console will be a tool to validate this storage engine
 
-*Relevant Files And Directories*
+***Relevant Files And Directories***
 
 * models: directory will contain all classes used for the entire project. A class, called “model” in a OOP * project is the representation of an object/instance.
 
@@ -36,7 +36,7 @@ The console will be a tool to validate this storage engine
 
 * models/engine: directory will contain all storage classes (using the same prototype). For the moment you will have only one: file_storage.py.
 
-*Using The Console*
+***Using The Console***
 
 * Run the console: ./console.py
 
@@ -52,16 +52,18 @@ The console will be a tool to validate this storage engine
 
 * Update an attribute of an object: (hbnb) update "" or (hbnb) .update(, , "")
 
-*Examples;*
+***Examples;***
 
-*Interactive Mode:*
+**Interactive Mode;**
 
 $ ./console.py
 
 (hbnb) help
 
 Documented commands (type help <topic>):
+
 ===================================
+
 EOF  help  quit
 
 (hbnb) 
@@ -74,13 +76,14 @@ $
 
 
 
-*Non-Interactive Mode:*
+***Non-Interactive Mode:***
 
 $ echo "help" | ./console.py
 
 (hbnb)
 
 Documented commands (type help <topic>):
+
 ==================================
 
 EOF  help  quit
@@ -100,6 +103,7 @@ $ cat test_help | ./console.py
 (hbnb)
 
 Documented commands (type help <topic>):
+
 ==================================
 
 EOF  help  quit
@@ -110,7 +114,9 @@ $
 
 
 
-*AUTHORS.*
+
+
+***AUTHORS.***
 * PEACE KEZA
 * NTWALI Eliel
 
