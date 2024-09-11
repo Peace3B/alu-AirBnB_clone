@@ -5,9 +5,10 @@ import datetime
 import json
 import os
 
+
 class FileStorage:
-    """Serializes instances to a JSON file and deserializes JSON file to instances."""
-    
+    """Serializes & Deserializes JSON file to instances."""
+
     __file_path = "file.json"
     __objects = {}
 
@@ -25,21 +26,22 @@ class FileStorage:
         with open(self.__file_path, 'w') as f:
             json.dump({k: v.to_dict() for k, v in self.__objects.items()}, f)
 
-def classes(self):
-"""Returns a dictionary of valid classes and their references."""
- from models.base_model import BaseModel
-        from models.user import User
-        from models.state import State
-        from models.city import City
-        from models.amenity import Amenity
-        from models.place import Place
-        from models.review import Review
 
-classes = {"BaseModel": BaseModel,
-"User": User,
-"State": State,
-"City": City,
-"Amenity": Amenity,
-"Place": Place,
-"Review": Review}
-return classes
+def classes(self):
+    """Returns a dictionary of valid classes and their references."""
+    from models.base_model import BaseModel
+    from models.user import User
+    from models.state import State
+    from models.city import City
+    from models.amenity import Amenity
+    from models.place import Place
+    from models.review import Review
+
+    classes = {"BaseModel": BaseModel,
+               "User": User,
+               "State": State,
+               "City": City,
+               "Amenity": Amenity,
+               "Place": Place,
+               "Review": Review}
+    return classes
