@@ -8,7 +8,7 @@ import os
 
 class FileStorage:
     """Serializes & Deserializes JSON file to instances."""
-    
+
     __file_path = "file.json"
     __objects = {}
 
@@ -36,7 +36,7 @@ def classes(self):
     from models.amenity import Amenity
     from models.place import Place
     from models.review import Review
-    
+
     classes = {"BaseModel": BaseModel,
                "User": User,
                "State": State,
