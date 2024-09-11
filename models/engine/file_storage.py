@@ -5,8 +5,10 @@ import datetime
 import json
 import os
 
+
 class FileStorage:
-    """Serializes instances to a JSON file and deserializes JSON file to instances."""
+    """Serializes instances to a JSON file & 
+    Deserializes JSON file to instances."""
     
     __file_path = "file.json"
     __objects = {}
@@ -24,6 +26,7 @@ class FileStorage:
         """Serializes __objects to the JSON file."""
         with open(self.__file_path, 'w') as f:
             json.dump({k: v.to_dict() for k, v in self.__objects.items()}, f)
+
 
 def classes(self):
     """Returns a dictionary of valid classes and their references."""
