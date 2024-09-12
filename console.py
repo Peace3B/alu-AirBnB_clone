@@ -31,7 +31,7 @@ class ModelNotFoundError(Exception):
 classes = storage.models
 
 
-class HBNBCommand(Cmd):
+class HBNBCommand(cmd.Cmd):
     """
     The Console based driver of the AirBnb Clone
     All interactions with the system is done via
