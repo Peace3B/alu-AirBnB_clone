@@ -81,6 +81,14 @@ class FileStorage:
 
         return F.__objects[key]
 
+    class ModelNotFoundError(Exception):
+    """Exception raised when a model is not found."""
+    pass
+
+class InstanceNotFoundError(Exception):
+    """Exception raised when an instance is not found."""
+    pass
+    
     def delete_by_id(self, model, obj_id):
         """Find and return an elemt of model by its id"""
         F = FileStorage
