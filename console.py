@@ -41,7 +41,8 @@ class HBNBCommand(cmd.Cmd):
 
     """Commands"""
     def do_EOF(self, args):
-        """Exit the programme in non-interactive mode"""
+        """Handle EOF (Ctrl+D) to exit the program"""
+        print()
         return True
 
     def do_quit(self, args):
@@ -185,7 +186,7 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         """Override empty line to do nothing"""
-        return
+        pass
 
 
 def parse(line: str):
