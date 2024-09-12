@@ -15,7 +15,6 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 
-
 # Define custom exceptions
 class InstanceNotFoundError(Exception):
     """Exception raised when an instance is not found."""
@@ -24,7 +23,6 @@ class InstanceNotFoundError(Exception):
 class ModelNotFoundError(Exception):
     """Exception raised when a model is not found."""
     pass
-
 
 # Global variable of registered models
 classes = storage.models
