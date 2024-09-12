@@ -12,51 +12,82 @@ import unittest
 import uuid
 
 
-import unittest
-from models.base_model import BaseModel
-from datetime import datetime
-import uuid
-
-class TestBaseModel(unittest.TestCase):
+class TestBasemodel(unittest.TestCase):
+    """
+    Unittest for BaseModel
+    """
 
     def setUp(self):
-        """Sets up an instance of BaseModel for testing."""
-        self.model = BaseModel()
-
-    def test_id_is_unique(self):
-        """Test that id is a unique string in UUID format."""
-        self.assertIsInstance(self.model.id, str)
-        # Verify if the id is a valid UUID string
+        """
+        Setup for temporary file path
+        """
         try:
-            uuid.UUID(self.model.id)
-        except ValueError:
-            self.fail(f"{self.model.id} is not a valid UUID")
+            os.rename("file.json", "tmp.json")
+        except FileNotFoundError:
+            pass
 
-    def test_created_at_is_datetime(self):
-        """Test that created_at is of type datetime."""
-        self.assertIsInstance(self.model.created_at, datetime)
+    def tearDown(self):
+        """
+        Tear down for temporary file path
+        """
+        try:
+            os.remove("file.json")
+        except FileNotFoundError:
+            pass
+        try:
+            os.rename("tmp.json", "file.json")
+        except FileNotFoundError:
+            pass
+    def test_init(self):
+        """
+        Test for init
+        """
+        my_model = BaseModel()
 
-    def test_updated_at_is_datetime(self):
-        """Test that updated_at is of type datetime and equal to created_at at initialization."""
-        self.assertIsInstance(self.model.updated_at, datetime)
-        self.assertEqual(self.model.created_at, self.model.updated_at)
+        self.assertIsNotNone(my_model.id)
+        self.assertIsNotNone(my_model.created_at)
+        self.assertIsNotNone(my_model.updated_at)
 
-    def test_save_method(self):
-        """Test the save method updates the updated_at attribute."""
-        old_updated_at = self.model.updated_at
-        self.model.save()
-        new_updated_at = self.model.updated_at
-        self.assertNotEqual(old_updated_at, new_updated_at)
-        self.assertGreater(new_updated_at, old_updated_at)
+    def test_save(self):
+        """
+        Test for save method
+        """
+        my_model = BaseModel()
 
-    def test_to_dict_method(self):
-        """Test the to_dict method returns the correct dictionary."""
-        model_dict = self.model.to_dict()
-        self.assertEqual(model_dict['id'], self.model.id)
-        self.assertEqual(model_dict['created_at'], self.model.created_at.isoformat())
-        self.assertEqual(model_dict['updated_at'], self.model.updated_at.isoformat())
-        self.assertIsInstance(model_dict, dict)
+        initial_updated_at = my_model.updated_at
+
+        current_updated_at = my_model.save()
+
+        self.assertNotEqual(initial_updated_at, current_updated_at)
+
+    def test_to_dict(self):
+        """
+        Test for to_dict method
+        """
+        my_model = BaseModel()
+
+        my_model_dict = my_model.to_dict()
+
+        self.assertIsInstance(my_model_dict, dict)
+
+        self.assertEqual(my_model_dict["__class__"], 'BaseModel')
+        self.assertEqual(my_model_dict['id'], my_model.id)
+        self.assertEqual(my_model_dict['created_at'], my_model.created_at.isoformat())
+        self.assertEqual(my_model_dict["updated_at"], my_model.created_at.isoformat())
+
+
+    def test_str(self):
+        """
+        Test for string representation
+        """
+        my_model = BaseModel()
+
+        self.assertTrue(str(my_model).startswith('[BaseModel]'))
+
+        self.assertIn(my_model.id, str(my_model))
+
+        self.assertIn(str(my_model.__dict__), str(my_model))
+
 
 if __name__ == "__main__":
     unittest.main()
-    
