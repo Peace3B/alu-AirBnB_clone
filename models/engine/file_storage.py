@@ -7,7 +7,6 @@ an object"""
 
 import json
 from json.decoder import JSONDecodeError
-from .errors import *
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
