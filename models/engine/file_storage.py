@@ -26,7 +26,10 @@ class FileStorage:
         with open(self.__file_path, 'w') as f:
             json.dump({k: v.to_dict() for k, v in self.__objects.items()}, f)
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 66c8d6bb48c1f0e54cf0f47ea4acc669ab2f3790
 def classes(self):
     """Returns a dictionary of valid classes and their references."""
     from models.base_model import BaseModel
@@ -36,7 +39,11 @@ def classes(self):
     from models.amenity import Amenity
     from models.place import Place
     from models.review import Review
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> 66c8d6bb48c1f0e54cf0f47ea4acc669ab2f3790
     classes = {"BaseModel": BaseModel,
                "User": User,
                "State": State,
