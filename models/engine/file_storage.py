@@ -16,7 +16,6 @@ from models.place import Place
 from models.review import Review
 from datetime import datetime
 
-
 class FileStorage:
     """This class serve as an ORM to interface between or Storage System"""
 
@@ -80,7 +79,6 @@ class FileStorage:
             raise InstanceNotFoundError(obj_id, model)
 
         return F.__objects[key]
-
 
     def delete_by_id(self, model, obj_id):
         """Find and return an elemt of model by its id"""
