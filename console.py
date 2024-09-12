@@ -4,7 +4,7 @@ This file defines the console class which will
 serve as the entry point of the entire project
 """
 
-from cmd import Cmd
+import cmd
 from models import storage
 import shlex
 from models.base_model import BaseModel
