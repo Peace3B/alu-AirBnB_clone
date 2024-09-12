@@ -66,15 +66,21 @@ class FileStorage:
             # No need for error
             pass
 
-    def find_by_id(self, obj_id, model):
-    """Method to find an object by ID"""
-    if model not in self.__objects:
-        raise ModelNotFoundError(f"Model {model} does not exist.")
-    
-    if obj_id not in self.__objects[model]:
-        raise InstanceNotFoundError(obj_id, model)
-    
-    return self.__objects[model][obj_id]
+    def find_by_id(self, model, obj_id):
+        """Find and return an elemt of model by its id"""
+        F = FileStorage
+        if model not in F.models:
+            # Invalid Model Name
+            # Not yet Implemented
+            raise ModelNotFoundError(model)
+
+        key = model + "." + obj_id
+        if key not in F.__objects:
+            # invalid id
+            # Not yet Implemented
+            raise InstanceNotFoundError(obj_id, model)
+
+        return F.__objects[key]
 
     def delete_by_id(self, model, obj_id):
         """Find and return an elemt of model by its id"""
